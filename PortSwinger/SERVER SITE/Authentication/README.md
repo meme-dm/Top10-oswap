@@ -24,4 +24,6 @@
 
 ## Các lỗ hổng.
 
-1. [Các lỗ hổng trong đăng nhập dựa trên mật khẩu](brute-force.md)
+1. [Các lỗ hổng trong đăng nhập dựa trên mật khẩu](brute-force.md).
+2. [Các lỗ hổng trong xác thực đa yếu tố](multi-factor.md).
+3. [Vulnerabilities in other authentication mechanisms](mechanisms.md).
