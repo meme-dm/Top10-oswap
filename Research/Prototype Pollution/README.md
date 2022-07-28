@@ -9,7 +9,7 @@
 	+ Var a = new Object () => Đây được gọi là Object Constructor.
 	+ Var a = {} => Đây được gọi là Object Literal.
 
-->![img](source/img1.png)<-
+![img](source/img1.png)
 
 => Name, Address, Age là các thuộc tính (properties). Tương tự việc chúng ta truy cập các array bằng chỉ mục thì ta có thể truy cập vào objects thông qua thuộc tính.
 
@@ -83,7 +83,7 @@ kaka.action() // Kakashi Action: Kill
 
 - Prototype là cơ chế mà các đối tượng JavaScript kế thừa các tính năng từ nhau, chúng ta có thể thêm nhiều thuộc tính trong Prototype.
 
-->![img](source/img2.png)<-
+![img](source/img2.png)
 
 - Như ta thấy khi nhấn dấu **.** trước *e1* ngoài hai thuộc tính 'name' và 'type' còn có thêm nhiều thuộc tính khác như :
 ```
@@ -95,19 +95,19 @@ __proto__
 ```
 - Các thuộc tính tích hợp này được gọi là prototype. Prototype tự nó là một Object, vì vậy prototye cũng sẽ có các prototype riêng của chính nó, từ đó tạo ra cái gọi là prototype chain. Chuỗi kết thúc khi chúng ta truy cập đến prototype mà giá trị trả về là null.
 
-->![img](source/img3.png)<-
+![img](source/img3.png)
 
 - Điều này có nghĩa là bất cứ khi nào chúng ta tạo một hàm, JavaScript sẽ thêm một thuộc tính nội bộ bên trong hàm, nó còn được gọi là **Prototype Object**. Chúng ta có thể thêm vào các phương thức và thuộc tính để cho phép tất cả các đối tượng khác kế thừa các phương thức và thuộc tính này.
 
 => Tất cả các đối tượng JavaScript kế thừa các thuộc tính và phương thức từ một prototype.
 
-->![img](source/img4.png)<-
+![img](source/img4.png)
 
 - Dữ liệu được tìm kiếm trong prototype của đối tượng. Nếu nó không được tìm thấy trong prototype đó, thì nó sẽ đi vào các prototype của **prototype object**. Điều này tiếp tục cho đến khi dữ liệu được tìm thấy hoặc trả về *undefined*.
 
 - *__proto__* là một cách để kế thừa các thuộc tính từ một đối tượng trong JavaScript. *__proto__* là một thuộc tính của Object.prototype để hiển thị [[Prototype]] của đối tượng mà nó được phép truy cập.
 
-->![img](source/img5.png)<-
+![img](source/img5.png)
 
 - Có thể thấy trong object, chúng ta sẽ không thấy phương thức *hasOwnProperty* khả dụng. Nhưng nó lại có sẵn trong *__proto__*, hay nói cách khác *hasOwnProperty* tồn tại trong chính *__proto__*. Ta có thể truy cập vào các prototype cấp sâu hơn bằng cách sử dụng nhiều *__proto__* và khi kết quả trả về null chuỗi kết thúc.
 
@@ -129,11 +129,11 @@ __proto__
 
 - Mức độ gây hại của cuộc tấn công có thể phụ thuộc vào ứng dụng và payload, nó có thể gây ra các lỗ hổng nguy hiểm như RCE, IDOR, Bypass Auth và các lỗ hổng khác, hay thông dụng nhất là XSS.
 
-->![img](source/img6.png)<-
+![img](source/img6.png)
 
 - Từ ví dụ trên ta có thể thấy rằng khi ta tạo hai object hoàn toàn mới *n1* và *n2* từ *construction ninja* và sau đó ta sẽ thêm một phương thức mới là *say* cho *n1*. Theo logic phương thức này sẽ chỉ có trong *n1* tuy nhiên thay vì sử dụng *n1.prototype.say* để thêm thì ta dùng *n1.__proto__.say* để thêm điều này sẽ không chỉ thay đổi các phương thức bên trong *n1* mà nó làm thay đối tất cả phương thức của các đối tượng trong ứng dụng. Bằng chứng là object *n2* cũng tồn tại thuộc tính *say*.
 
-->![img](source/img7.png)<-
+![img](source/img7.png)
 
 - Như đã nói ở trên tuy *n2* không được thêm phương thức *say* tuy nhiên phương thức này lại được khai báo trong *__proto__* mà bất kì object nào cũng đều tồn tại *__proto__* bởi vậy khi chương trình không tìm thấy phương thức *say* trong object n2 nó sẽ tiếp tục đi xuống *__proto__* và tìm kiếm và tìm thấy say tại đây vì thế theo tính kế thừa *say* sẽ được gọi từ n2. Điều này không chỉ tác động đến các object có sẵn mà ngay cả khi tạo mới một object n3 nó cũng bị ảnh hưởng.
 
@@ -181,7 +181,7 @@ if (query.message != undefined){
 
 - Nhưng vì ứng dụng thực hiện lấy và phân tích tất cả các param mà ta truyền vào nên ta hoàn toàn có thể lợi dụng điều này để thêm một thuộc tính payload vào bằng *__proto__*. Lúc này thuộc tính payload không phải tồn tại trong object message mà nó nằm trong object prototype. Như đã nói ở trên thì ứng dụng sẽ vào message và tìm kiếm payload do là không có payload nên nó sẽ tiếp tục đi xuống [[prototype]] để tìm kiếm và ở đây nó tìm thấy payload.
 
-->![img](source/img8.png)<-
+![img](source/img8.png)
 
 > Payload:
 
@@ -191,4 +191,4 @@ if (query.message != undefined){
 
 - Như vậy mặc dù không tồn tại thuộc tính payload trong messages nhưng ứng dụng vẫn gọi lên được và thực thi nó.
 
-->![img](source/img9.png)<-
+![img](source/img9.png)
