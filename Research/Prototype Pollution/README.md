@@ -4,8 +4,8 @@
 
 ### Objects
 
-- Một Objects trong JavaScript là một kiểu dữ liệu bao gồm một tập hợp các giá trị và thuộc tính , được biểu diễn bằng các cặp key:value. Các cặp key:value bao gồm các thuộc tính có thể là bất kỳ kiểu dữ liệu nào.
-- Ta có thể khai bóa một object theo hai cách.
+- Một Objects trong JavaScript là một kiểu dữ liệu bao gồm một tập hợp các giá trị và thuộc tính , được biểu diễn bằng các cặp *key:value*. Các cặp *key:value* bao gồm các thuộc tính có thể là bất kỳ kiểu dữ liệu nào.
+- Ta có thể khai báo một object theo hai cách.
 	+ Var a = new Object () => Đây được gọi là Object Constructor.
 	+ Var a = {} => Đây được gọi là Object Literal.
 
@@ -36,12 +36,12 @@ a.firstName
 a.fullName()
 //Hatake Kakashi
 ```
-- Đến đấy ta có thể thấy việc gọi firstName và fullName có sự khác biệt là do *firstName* là một thuộc tính còn *fullName* là một phương thức.
+- Đến đấy ta có thể thấy việc gọi *firstName* và *fullName* có sự khác biệt là do *firstName* là một thuộc tính còn *fullName* là một phương thức.
 	+ Thuộc tính là sự liên kết giữa key và value trong một Objects và nó có thể chứa bất kỳ kiểu dữ liệu nào.Một thuộc tính thường đề cập đến đặc tính của một đối tượng.
 	+ Phương thức là một hàm giá trị của một thuộc tính đối tượng và do đó là một tác vụ mà một đối tượng có thể thực hiện.
 
 - Ngoài ra, có thể thấy từ khóa **this** được sử dụng trong hàm của phương thức *fullName*, ta có thể hiểu nó là một thể hiện của một Object và đứng trong các ngữ cảnh khác nhau nó sẽ có giá trị khác nhau.
-	+ Trong một phương thức đối tượng, this tham chiếu đến chính đối tượng đó.
+	+ Trong một phương thức đối tượng, *this* tham chiếu đến chính đối tượng đó.
 	+ Khi đứng một mình , *this* đề cập đến đối tượng toàn cục.
 	+ Trong một hàm, *this* tham chiếu đến đối tượng toàn cục.
 	+ Trong một chức năng (strict mode) *this* là *undefined*.
@@ -51,7 +51,7 @@ a.fullName()
 ### Constructor
 
 - **Constructor** trong JavaScript là một loại phương thức đặc biệt được sử dụng để khởi tạo và tạo một đối tượng. Nó được gọi khi bộ nhớ được cấp phát cho một đối tượng
-- Khi contructor được khởi tạo bên trong một class nó sẽ tự động được gọi khi class chứa nó được gọi hay nói cách khác nó là hàm được gọi đầu tiên trong class.
+- Khi constructor được khởi tạo bên trong một class nó sẽ tự động được gọi khi class chứa nó được gọi hay nói cách khác nó là hàm được gọi đầu tiên trong class.
 - Constructor tương tự như tên lớp của nó, nhưng Constructor không có kiểu trả về.
 - Một vài quy ước của hàm Constructor là:
 	+ Tên object constructor nên bắt đầu bằng chữ hoa.
@@ -125,7 +125,7 @@ __proto__
 - Cuộc tấn công này sẽ chỉ xảy ra khi có các điều kiện trên:
 	+ Thực hiện việc ghép đệ quy các đối tượng (Object recursive merge).
 	+ Định nghĩa thuộc tính qua đường dẫn (Property definition by path).
-	+ Thực hiện nhân bản đối tượng (clone object). 
+	+ Thực hiện nhân bản đối tượng (Clone object). 
 
 - Mức độ gây hại của cuộc tấn công có thể phụ thuộc vào ứng dụng và payload, nó có thể gây ra các lỗ hổng nguy hiểm như RCE, IDOR, Bypass Auth và các lỗ hổng khác, hay thông dụng nhất là XSS.
 
