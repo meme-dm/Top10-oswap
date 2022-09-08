@@ -73,3 +73,8 @@
 
 - Ta có thể thấy hàm *isPeriledPath* sẽ kiểm tra xem đường dẫn có chứa *://* hay không, điều này sẽ vô hiệu hóa cách sử dụng đường dẫn tệp thông qua các php wrapper hay nói rộng hơn nó từ chối cho phép người dùng truyền vào các đường dẫn dạng url.
 
+![img](source/img6.png)
+
+- Trong khi ta có thể thấy trong phiên bản lỗi code chỉ kiểm tra xem đầu vào có phải là một tệp hay không thông qua hàm **is_file()**, như vậy nếu ta có thể tải lên server một tệp phar và kiểm soát đường dẫn tệp thì ta hoàn toàn có thể thực hiện một cuộc tấn công phar nhờ vào việc gọi file bằng *phar://path* thông qua hàm *addAttachment()*.
+
+*Continue Update*
