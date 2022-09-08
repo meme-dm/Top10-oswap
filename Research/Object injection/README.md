@@ -47,7 +47,7 @@
 	3. File Contents : là các file tồn tại bên trong archive
 	4. Signature : là một hàm băm của file archive, phải có chữ ký hợp lệ nếu muốn truy cập file archive từ PHP.
 
-[!img](source/img3.png)
+![img](source/img3.png)
 
 - Để có thể khai thác lỗ hổng phar deserialized cần 3 điều kiện sau:
 	+ Tìm được POP chain trong trong source code cần khai thác.
@@ -56,7 +56,7 @@
 
 - Các hàm file dễ ảnh hưởng bởi lỗ hổng này:
 
-[!img](source/img2.png)
+![img](source/img2.png)
 
 ##  PHP Object Injection trong PHPMailer
 
@@ -64,12 +64,12 @@
 
 - Lỗ hổng xảy ra bằng cách chuyển đường dẫn *phar://* vào hàm *addAttachment()*
 
-[!img](source/img4.png)
+![img](source/img4.png)
 
 - Khi so sánh bản lỗi và bản vá ta có thể nhận thấy PHPMailer thêm một kiểm tra isPeriledPath($path)
 để kiểm tra xem đường dẫn có hợp lệ hay không, nếu không thì *phpmailerException* sẽ được gọi ra.
 
-[!img](source/img5.png)
+![img](source/img5.png)
 
 - Ta có thể thấy hàm *isPeriledPath* sẽ kiểm tra xem đường dẫn có chứa *://* hay không, điều này sẽ vô hiệu hóa cách sử dụng đường dẫn tệp thông qua các php wrapper hay nói rộng hơn nó từ chối cho phép người dùng truyền vào các đường dẫn dạng url.
 
